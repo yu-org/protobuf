@@ -1,0 +1,11 @@
+syntax = "proto3";
+
+option go_package = "./";
+import "result.proto";
+
+message Context {
+    bytes Caller = 1;
+    string Params = 2;
+    repeated Event Events = 3;
+    Error Error = 4;
+}

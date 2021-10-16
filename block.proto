@@ -1,0 +1,52 @@
+syntax = "proto3";
+
+option go_package = "./";
+import "txn.proto";
+
+message Block {
+    CompactBlock CompactBlock = 1;
+    repeated SignedTxn Txns = 2;
+}
+
+message CompactBlock {
+    Header Header = 1;
+    repeated bytes TxnsHashes = 2;
+}
+
+message Header {
+    bytes Hash = 1;
+    bytes PrevHash = 2;
+    uint64 Height = 3;
+
+    bytes TxnRoot = 4;
+    bytes StateRoot = 5;
+
+    uint64 Timestamp = 6;
+    string PeerID = 7;
+
+    uint64 LeiLimit = 8;
+    uint64 LeiUsed = 9;
+
+    uint64 Nonce = 10;
+    uint64 Difficulty = 11;
+
+    bytes Signature = 12;
+
+    repeated Validator Validators = 13;
+    Proof Proof = 14;
+
+    bytes Extra = 15;
+}
+
+message Validator {
+    bytes PubKey = 1;
+    uint64 ProposeWeight = 2;
+    uint64 VoteWeight = 3;
+}
+
+message Proof {
+    bytes BlockHash = 1;
+    bytes PubKey = 2;
+    bytes Signature = 3;
+    bytes VrfProof = 4;
+}

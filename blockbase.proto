@@ -1,0 +1,34 @@
+syntax = "proto3";
+
+option go_package = "./";
+import "txn.proto";
+import "result.proto";
+import "base_types.proto";
+
+service BlockBase {
+    rpc GetTxn(TxnHash) returns (TxnResponse);
+    rpc SetTxn(SignedTxn) returns (Err);
+
+    rpc GetTxns(BlockHash) returns (TxnsResponse);
+    rpc SetTxns(TxnsRequest) returns (Err);
+
+    rpc GetEvents(BlockHash) returns (EventsResponse);
+    rpc SetEvents(EventsRequest) returns (Err);
+
+    rpc GetErrors(BlockHash) returns (ErrorsResponse);
+    rpc SetError(Error) returns (Err);
+}
+
+message EventsRequest {
+    repeated Event Events = 1;
+}
+
+message EventsResponse {
+    repeated Event Events = 1;
+    string Error = 2;
+}
+
+message ErrorsResponse {
+    repeated Error Errors = 1;
+    string Error = 2;
+}

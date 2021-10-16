@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+option go_package = "./";
+
+message BlockHash {
+    bytes Hash = 1;
+}
+
+message TxnHash {
+    bytes Hash = 2;
+}
+
+message Err {
+    string msg = 1;
+}
+
+message Bool {
+    bool ok = 1;
+}
+
+message U64 {
+    uint64 U64 = 1;
+}

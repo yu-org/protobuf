@@ -1,0 +1,58 @@
+syntax = "proto3";
+
+option go_package = "./";
+
+message UnsignedTxn {
+    bytes ID = 1;
+    bytes Caller = 2;
+    Ecall Ecall = 3;
+    uint64 Timestamp = 4;
+}
+
+message SignedTxn {
+    UnsignedTxn Raw = 1;
+    bytes TxnHash = 2;
+    bytes Pubkey = 3;
+    bytes Signature = 4;
+}
+
+message Ecall {
+    string TripodName = 1;
+    string ExecName = 2;
+    string Params = 3;
+}
+
+message Qcall {
+    string TripodName = 1;
+    string ExecName = 2;
+    string Params = 3;
+
+    bytes BlockHash = 4;
+}
+
+message TxnsHashes {
+    repeated bytes Hashes = 1;
+}
+
+message BatchSignedTxns {
+    repeated SignedTxn Txns = 1;
+}
+
+message TxnResponse {
+    SignedTxn Txn = 1;
+    string Error = 2;
+}
+
+message TxnRequest {
+    SignedTxn Txn = 1;
+}
+
+message TxnsRequest {
+    bytes BlockHash = 1;
+    repeated SignedTxn Txns = 2;
+}
+
+message TxnsResponse {
+    repeated SignedTxn Txns = 1;
+    string Error = 2;
+}

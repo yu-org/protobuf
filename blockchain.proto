@@ -1,0 +1,39 @@
+syntax = "proto3";
+
+option go_package = "./";
+import "google/protobuf/empty.proto";
+import "block.proto";
+import "base_types.proto";
+
+service BlockChain {
+    rpc GetGenesis(google.protobuf.Empty) returns (BlockResponse);
+    rpc SetGenesis(CompactBlock) returns (Err);
+
+    rpc AppendBlock(CompactBlock) returns (Err);
+    rpc GetBlock(BlockHash) returns (BlockResponse);
+    rpc ExistsBlock(BlockHash) returns (Bool);
+    rpc UpdateBlock(CompactBlock) returns (Err);
+
+    rpc Children(BlockHash) returns (BlocksResponse);
+    rpc Finalize(BlockHash) returns (Err);
+    rpc GetFinalizedBlock(google.protobuf.Empty) returns (BlockResponse);
+    rpc GetEndBlock(google.protobuf.Empty) returns (BlockResponse);
+    rpc GetRangeBlocks(RangeRequest) returns (BlocksResponse);
+
+}
+
+
+message BlockResponse {
+    CompactBlock Block = 1;
+    string Error = 2;
+}
+
+message BlocksResponse {
+    repeated CompactBlock Blocks = 1;
+    string Error = 2;
+}
+
+message RangeRequest {
+    uint64 StartHeight = 1;
+    uint64 EndHeight = 2;
+}

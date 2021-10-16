@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+option go_package = "./";
+
+import "google/protobuf/empty.proto";
+import "base_types.proto";
+import "txn.proto";
+
+service Txpool {
+    rpc PoolSize(google.protobuf.Empty) returns (U64);
+
+    rpc BaseCheck(SignedTxn) returns (Err);
+    rpc TripodsCheck(SignedTxn) returns (Err);
+    rpc NecessaryCheck(SignedTxn) returns (Err);
+
+    rpc Insert(SignedTxn) returns (Err);
+    rpc BatchInsert(BatchSignedTxns) returns (Err);
+
+    rpc RemovesTxns(TxnsHashes) returns (Err);
+
+    rpc Pack(U64) returns (TxnsResponse);
+    rpc Reset(google.protobuf.Empty) returns (Err);
+
+}

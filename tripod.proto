@@ -1,0 +1,40 @@
+syntax = "proto3";
+
+option go_package = "./";
+import "google/protobuf/empty.proto";
+import "txn.proto";
+import "base_types.proto";
+import "block.proto";
+
+service Tripod {
+    rpc CheckTxn(TripodTxnRequest) returns (Err);
+    rpc VerifyBlock(TripodBlockRequest) returns (Bool);
+
+    rpc StartBlock(TripodBlockRequest) returns (Err);
+    rpc EndBlock(TripodBlockRequest) returns (Err);
+    rpc FinalizeBlock(TripodBlockRequest) returns (Err);
+}
+
+service Land {
+    rpc SetTripods(TripodsInfo) returns (google.protobuf.Empty);
+}
+
+message TripodsInfo {
+    repeated TripodInfo Tripods = 1;
+}
+
+message TripodInfo {
+    string Name = 1;
+    repeated string Queries = 2;
+    repeated string Executions = 3;
+}
+
+message TripodTxnRequest {
+    string TripodName = 1;
+    SignedTxn Txn = 2;
+}
+
+message TripodBlockRequest {
+    string TripodName = 1;
+    CompactBlock Block = 2;
+}
