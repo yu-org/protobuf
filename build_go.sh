@@ -6,4 +6,4 @@
 protoc  -I ./ \
 --go_out=plugins=grpc:. ./*.proto
 
-mv ./types ../yu/
+mv ./goproto ../yu/types
