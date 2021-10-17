@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+option go_package = "./goproto";
+import "base_types.proto";
+
+service Pubsub {
+    rpc PubP2P(PubRequest) returns (Err);
+    rpc SubP2P(SubRequest) returns (SubResponse);
+}
+
+message PubRequest {
+    string Topic = 1;
+    bytes Msg = 2;
+}
+
+message SubRequest {
+    string Topic = 1;
+}
+
+message SubResponse {
+    bytes Msg = 1;
+    string Err = 2;
+}
+
