@@ -31,11 +31,15 @@ message Header {
     bytes Signature = 11;
 
     Validators Validators = 12;
-    Proof Proof = 13;
 
-    PowInfo PowInfo = 14;
+    bytes ProofBlockHash = 13;
+    uint64 ProofHeight = 14;
+    bytes VrfProof = 15;
 
-    bytes Extra = 15;
+    uint64 Nonce = 16;
+    uint64 Difficulty = 17;
+
+    bytes Extra = 18;
 }
 
 message Validators {
@@ -46,15 +50,4 @@ message Validator {
     bytes PubKey = 1;
     uint64 ProposeWeight = 2;
     uint64 VoteWeight = 3;
-}
-
-message Proof {
-    bytes BlockHash = 1;
-    uint64 Height = 2;
-    bytes VrfProof = 3;
-}
-
-message PowInfo {
-    uint64 Nonce = 1;
-    uint64 Difficulty = 2;
 }
