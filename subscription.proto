@@ -1,0 +1,8 @@
+syntax = "proto3";
+
+option go_package = "./goproto";
+import "base_types.proto";
+
+service Subscription {
+    rpc Emit(Bytes) returns (Err);
+}

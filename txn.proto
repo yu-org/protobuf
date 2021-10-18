@@ -16,6 +16,10 @@ message SignedTxn {
     bytes Signature = 4;
 }
 
+message SignedTxns {
+    repeated SignedTxn Txns = 1;
+}
+
 message Ecall {
     string TripodName = 1;
     string ExecName = 2;

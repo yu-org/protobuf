@@ -1,0 +1,43 @@
+syntax = "proto3";
+
+option go_package = "./goproto";
+
+import "google/protobuf/empty.proto";
+import "base_types.proto";
+
+service StateStore {
+    rpc Get(Key) returns (ValueResponse);
+    rpc Set(KeyValue) returns (Err);
+    rpc Delete(Key) returns (Err);
+    rpc Exist(Key) returns (Bool);
+    rpc GetByBlockHash(KeyByHash) returns (ValueResponse);
+
+    rpc StartBlock(TxnHash) returns (google.protobuf.Empty);
+    rpc SetCanRead(TxnHash) returns (google.protobuf.Empty);
+    rpc Commit(google.protobuf.Empty) returns (TxnHashResponse);
+    rpc Discard(google.protobuf.Empty) returns (google.protobuf.Empty);
+    rpc DiscardAll(google.protobuf.Empty) returns (google.protobuf.Empty);
+    rpc NextTxn(google.protobuf.Empty) returns (google.protobuf.Empty);
+}
+
+message Key {
+    string TripodName = 1;
+    bytes Key = 2;
+}
+
+message KeyValue {
+    string TripodName = 1;
+    bytes Key = 2;
+    bytes Value = 3;
+}
+
+message ValueResponse {
+    bytes Value = 1;
+    string ErrMsg = 2;
+}
+
+message KeyByHash {
+    string TripodName = 1;
+    bytes Key = 2;
+    bytes BlockHash = 3;
+}
