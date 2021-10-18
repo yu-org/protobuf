@@ -27,12 +27,19 @@ message Header {
     uint64 LeiLimit = 8;
     uint64 LeiUsed = 9;
 
-    repeated Validator Validators = 10;
-    Proof Proof = 11;
+    bytes Pubkey = 10;
+    bytes Signature = 11;
 
-    PowInfo PowInfo = 12;
+    Validators Validators = 12;
+    Proof Proof = 13;
 
-    bytes Extra = 13;
+    PowInfo PowInfo = 14;
+
+    bytes Extra = 15;
+}
+
+message Validators {
+    repeated Validator Validators = 1;
 }
 
 message Validator {
@@ -44,13 +51,10 @@ message Validator {
 message Proof {
     bytes BlockHash = 1;
     uint64 Height = 2;
-    bytes PubKey = 3;
-    bytes Signature = 4;
-    bytes VrfProof = 5;
+    bytes VrfProof = 3;
 }
 
 message PowInfo {
     uint64 Nonce = 1;
     uint64 Difficulty = 2;
-    bytes Signature = 3;
 }
