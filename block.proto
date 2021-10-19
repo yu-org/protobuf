@@ -5,7 +5,7 @@ import "txn.proto";
 
 message Block {
     CompactBlock CompactBlock = 1;
-    repeated SignedTxn Txns = 2;
+    SignedTxns Txns = 2;
 }
 
 message CompactBlock {
