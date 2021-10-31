@@ -1,0 +1,48 @@
+syntax = "proto3";
+
+option go_package = "./goproto";
+import "base_types.proto";
+import "google/protobuf/empty.proto";
+
+service P2pNetwork {
+    // kernel(rpc server)
+    // tripods --call-->  kernel
+    rpc RequestPeer(StreamRequest) returns (StreamResponse);
+    // kernel(rpc client)
+    // kernel --call--> tripods
+    rpc HandleRequest(Bytes) returns (StreamResponse);
+
+    rpc AddTopic(String) returns (google.protobuf.Empty);
+    rpc PubP2P(PubRequest) returns (Err);
+    rpc SubP2P(SubRequest) returns (SubResponse);
+}
+
+message StreamRequest {
+    uint32 Typ = 1;
+    string PeerID = 2;
+    bytes Msg = 3;
+}
+
+message StreamHandleRequest {
+    uint32 Typ = 1;
+    bytes Msg = 2;
+}
+
+message StreamResponse {
+    bytes Msg = 1;
+    string Err = 2;
+}
+
+message PubRequest {
+    string Topic = 1;
+    bytes Msg = 2;
+}
+
+message SubRequest {
+    string Topic = 1;
+}
+
+message SubResponse {
+    bytes Msg = 1;
+    string Err = 2;
+}
