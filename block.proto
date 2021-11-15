@@ -34,7 +34,7 @@ message Header {
 
     bytes ProofBlockHash = 13;
     uint64 ProofHeight = 14;
-    bytes VrfProof = 15;
+    bytes Proof = 15;
 
     uint64 Nonce = 16;
     uint64 Difficulty = 17;
