@@ -24,16 +24,16 @@ service BlockChain {
 
 
 message BlockResponse {
-    CompactBlock Block = 1;
-    string Error = 2;
+    CompactBlock block = 1;
+    string error = 2;
 }
 
 message BlocksResponse {
-    repeated CompactBlock Blocks = 1;
-    string Error = 2;
+    repeated CompactBlock blocks = 1;
+    string error = 2;
 }
 
 message RangeRequest {
-    uint64 StartHeight = 1;
-    uint64 EndHeight = 2;
+    uint64 start_height = 1;
+    uint64 end_height = 2;
 }

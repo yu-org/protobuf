@@ -21,23 +21,23 @@ service StateStore {
 }
 
 message Key {
-    string TripodName = 1;
-    bytes Key = 2;
+    string tripod_name = 1;
+    bytes key = 2;
 }
 
 message KeyValue {
-    string TripodName = 1;
-    bytes Key = 2;
-    bytes Value = 3;
+    string tripod_name = 1;
+    bytes key = 2;
+    bytes value = 3;
 }
 
 message ValueResponse {
-    bytes Value = 1;
-    string ErrMsg = 2;
+    bytes value = 1;
+    string err_msg = 2;
 }
 
 message KeyByHash {
-    string TripodName = 1;
-    bytes Key = 2;
-    bytes BlockHash = 3;
+    string tripod_name = 1;
+    bytes key = 2;
+    bytes block_hash = 3;
 }

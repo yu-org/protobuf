@@ -20,15 +20,15 @@ service BlockBase {
 }
 
 message EventsRequest {
-    repeated Event Events = 1;
+    repeated Event events = 1;
 }
 
 message EventsResponse {
-    repeated Event Events = 1;
-    string Error = 2;
+    repeated Event events = 1;
+    string error = 2;
 }
 
 message ErrorsResponse {
-    repeated Error Errors = 1;
-    string Error = 2;
+    repeated Error errors = 1;
+    string error = 2;
 }

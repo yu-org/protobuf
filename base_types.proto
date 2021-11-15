@@ -3,32 +3,32 @@ syntax = "proto3";
 option go_package = "./goproto";
 
 message BlockHash {
-    bytes Hash = 1;
+    bytes hash = 1;
 }
 
 message TxnHash {
-    bytes Hash = 1;
+    bytes hash = 1;
 }
 
 message TxnHashResponse {
-    bytes Hash = 1;
-    string ErrMsg = 2;
+    bytes hash = 1;
+    string err_msg = 2;
 }
 
 message Err {
-    string Msg = 1;
+    string msg = 1;
 }
 
 message Bool {
-    bool OK = 1;
+    bool ok = 1;
 }
 
 message U64 {
-    uint64 U64 = 1;
+    uint64 u64 = 1;
 }
 
 message Bytes {
-    bytes Bytes = 1;
+    bytes bytes = 1;
 }
 
 message String {

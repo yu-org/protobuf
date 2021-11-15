@@ -4,8 +4,8 @@ option go_package = "./goproto";
 import "result.proto";
 
 message Context {
-    bytes Caller = 1;
-    string Params = 2;
-    repeated Event Events = 3;
-    Error Error = 4;
+    bytes caller = 1;
+    string params = 2;
+    repeated Event events = 3;
+    Error error = 4;
 }

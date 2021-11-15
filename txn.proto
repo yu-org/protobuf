@@ -3,60 +3,60 @@ syntax = "proto3";
 option go_package = "./goproto";
 
 message UnsignedTxn {
-    bytes ID = 1;
-    bytes Caller = 2;
-    Ecall Ecall = 3;
-    uint64 Timestamp = 4;
+    bytes id = 1;
+    bytes caller = 2;
+    Ecall ecall = 3;
+    uint64 timestamp = 4;
 }
 
 message SignedTxn {
-    UnsignedTxn Raw = 1;
-    bytes TxnHash = 2;
-    bytes Pubkey = 3;
-    bytes Signature = 4;
+    UnsignedTxn raw = 1;
+    bytes txn_hash = 2;
+    bytes pubkey = 3;
+    bytes signature = 4;
 }
 
 message SignedTxns {
-    repeated SignedTxn Txns = 1;
+    repeated SignedTxn txns = 1;
 }
 
 message Ecall {
-    string TripodName = 1;
-    string ExecName = 2;
-    string Params = 3;
+    string tripod_name = 1;
+    string exec_name = 2;
+    string params = 3;
 }
 
 message Qcall {
-    string TripodName = 1;
-    string ExecName = 2;
-    string Params = 3;
+    string tripod_name = 1;
+    string exec_name = 2;
+    string params = 3;
 
-    bytes BlockHash = 4;
+    bytes block_hash = 4;
 }
 
 message TxnsHashes {
-    repeated bytes Hashes = 1;
+    repeated bytes hashes = 1;
 }
 
 message BatchSignedTxns {
-    repeated SignedTxn Txns = 1;
+    repeated SignedTxn txns = 1;
 }
 
 message TxnResponse {
-    SignedTxn Txn = 1;
-    string Error = 2;
+    SignedTxn txn = 1;
+    string error = 2;
 }
 
 message TxnRequest {
-    SignedTxn Txn = 1;
+    SignedTxn txn = 1;
 }
 
 message TxnsRequest {
-    bytes BlockHash = 1;
-    repeated SignedTxn Txns = 2;
+    bytes block_hash = 1;
+    repeated SignedTxn txns = 2;
 }
 
 message TxnsResponse {
-    repeated SignedTxn Txns = 1;
-    string Error = 2;
+    repeated SignedTxn txns = 1;
+    string error = 2;
 }

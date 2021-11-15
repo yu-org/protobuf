@@ -4,50 +4,50 @@ option go_package = "./goproto";
 import "txn.proto";
 
 message Block {
-    CompactBlock CompactBlock = 1;
-    SignedTxns Txns = 2;
+    CompactBlock compact_block = 1;
+    SignedTxns txns = 2;
 }
 
 message CompactBlock {
-    Header Header = 1;
-    repeated bytes TxnsHashes = 2;
+    Header header = 1;
+    repeated bytes txns_hashes = 2;
 }
 
 message Header {
-    bytes Hash = 1;
-    bytes PrevHash = 2;
-    uint64 Height = 3;
+    bytes hash = 1;
+    bytes prev_hash = 2;
+    uint64 height = 3;
 
-    bytes TxnRoot = 4;
-    bytes StateRoot = 5;
+    bytes txn_root = 4;
+    bytes state_root = 5;
 
-    uint64 Timestamp = 6;
-    string PeerID = 7;
+    uint64 timestamp = 6;
+    string peer_id = 7;
 
-    uint64 LeiLimit = 8;
-    uint64 LeiUsed = 9;
+    uint64 lei_limit = 8;
+    uint64 lei_used = 9;
 
-    bytes Pubkey = 10;
-    bytes Signature = 11;
+    bytes miner_pubkey = 10;
+    bytes miner_signature = 11;
 
-    Validators Validators = 12;
+    Validators validators = 12;
 
-    bytes ProofBlockHash = 13;
-    uint64 ProofHeight = 14;
-    bytes Proof = 15;
+    bytes proof_block_hash = 13;
+    uint64 proof_height = 14;
+    bytes proof = 15;
 
-    uint64 Nonce = 16;
-    uint64 Difficulty = 17;
+    uint64 nonce = 16;
+    uint64 difficulty = 17;
 
-    bytes Extra = 18;
+    bytes extra = 18;
 }
 
 message Validators {
-    repeated Validator Validators = 1;
+    repeated Validator validators = 1;
 }
 
 message Validator {
-    bytes PubKey = 1;
-    uint64 ProposeWeight = 2;
-    uint64 VoteWeight = 3;
+    bytes pub_key = 1;
+    uint64 propose_weight = 2;
+    uint64 vote_weight = 3;
 }

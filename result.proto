@@ -3,21 +3,21 @@ syntax = "proto3";
 option go_package = "./goproto";
 
 message Event {
-    bytes Caller = 1;
-    string BlockStage = 2;
-    bytes BlockHash = 3;
-    uint64 Height = 4;
-    string TripodName = 5;
-    string ExecName = 6;
-    string Value = 7;
+    bytes caller = 1;
+    string block_stage = 2;
+    bytes block_hash = 3;
+    uint64 height = 4;
+    string tripod_name = 5;
+    string exec_name = 6;
+    string value = 7;
 }
 
 message Error {
-    bytes Caller = 1;
-    string BlockStage = 2;
-    bytes BlockHash = 3;
-    uint64 Height = 4;
-    string TripodName = 5;
-    string ExecName = 6;
-    string Err = 7;
+    bytes caller = 1;
+    string block_stage = 2;
+    bytes block_hash = 3;
+    uint64 height = 4;
+    string tripod_name = 5;
+    string exec_name = 6;
+    string err = 7;
 }
