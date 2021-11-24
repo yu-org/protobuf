@@ -18,28 +18,30 @@ message Header {
     bytes prev_hash = 2;
     uint64 height = 3;
 
-    bytes txn_root = 4;
-    bytes state_root = 5;
+    uint64 chain_id = 4;
 
-    uint64 timestamp = 6;
-    string peer_id = 7;
+    bytes txn_root = 5;
+    bytes state_root = 6;
 
-    uint64 lei_limit = 8;
-    uint64 lei_used = 9;
+    uint64 timestamp = 7;
+    string peer_id = 8;
 
-    bytes miner_pubkey = 10;
-    bytes miner_signature = 11;
+    uint64 lei_limit = 9;
+    uint64 lei_used = 10;
 
-    Validators validators = 12;
+    bytes miner_pubkey = 11;
+    bytes miner_signature = 12;
 
-    bytes proof_block_hash = 13;
-    uint64 proof_height = 14;
-    bytes proof = 15;
+    Validators validators = 13;
 
-    uint64 nonce = 16;
-    uint64 difficulty = 17;
+    bytes proof_block_hash = 14;
+    uint64 proof_height = 15;
+    bytes proof = 16;
 
-    bytes extra = 18;
+    uint64 nonce = 17;
+    uint64 difficulty = 18;
+
+    bytes extra = 19;
 }
 
 message Validators {
