@@ -9,5 +9,5 @@ protoc  -I ./ \
 protoc  -I ./ \
 --go-grpc_out=. ./*.proto
 
-rm -r ../yu/types/goproto
-mv ./goproto ../yu/types
+rm -r ../yu/core/types/goproto
+mv ./goproto ../yu/core/types
