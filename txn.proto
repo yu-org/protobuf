@@ -6,8 +6,7 @@ message UnsignedTxn {
     bytes id = 1;
     bytes caller = 2;
     Ecall ecall = 3;
-    uint64 lei_price = 4;
-    uint64 timestamp = 5;
+    uint64 timestamp = 4;
 }
 
 message SignedTxn {
@@ -25,6 +24,7 @@ message Ecall {
     string tripod_name = 1;
     string exec_name = 2;
     string params = 3;
+    uint64 lei_price = 4;
 }
 
 message Qcall {

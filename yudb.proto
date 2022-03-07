@@ -5,7 +5,7 @@ import "txn.proto";
 import "result.proto";
 import "base_types.proto";
 
-service BlockBase {
+service YuDB {
     rpc GetTxn(TxnHash) returns (TxnResponse);
     rpc SetTxn(SignedTxn) returns (Err);
 
