@@ -4,13 +4,17 @@ option go_package = "./goproto";
 import "txn.proto";
 
 message Block {
-    CompactBlock compact_block = 1;
+    Header header = 1;
     SignedTxns txns = 2;
 }
 
 message CompactBlock {
     Header header = 1;
     repeated bytes txns_hashes = 2;
+}
+
+message CompactBlocks {
+    repeated CompactBlock blocks = 1;
 }
 
 message Header {
