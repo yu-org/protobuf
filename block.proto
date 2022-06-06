@@ -8,6 +8,10 @@ message Block {
     SignedTxns txns = 2;
 }
 
+message Blocks {
+    repeated Block blocks = 1;
+}
+
 message CompactBlock {
     Header header = 1;
     repeated bytes txns_hashes = 2;
