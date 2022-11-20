@@ -2,10 +2,19 @@ syntax = "proto3";
 
 option go_package = "./goproto";
 import "result.proto";
+import "block.proto";
+import "txn.proto";
 
-message Context {
-    bytes caller = 1;
-    string params = 2;
-    repeated Event events = 3;
-    Error error = 4;
+message ReadContext {
+    string params_str = 1;
+    bytes response = 2;
+}
+
+message WriteContext {
+    ReadContext read_context = 1;
+    Block block = 2;
+    SignedTxn txn = 3;
+    repeated Event events = 4;
+    Error error = 5;
+    uint64  lei_cost = 6;
 }

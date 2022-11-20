@@ -8,8 +8,9 @@ message Event {
     bytes block_hash = 3;
     uint64 height = 4;
     string tripod_name = 5;
-    string exec_name = 6;
+    string writing_name = 6;
     string value = 7;
+    uint64 lei_cost = 8;
 }
 
 message Error {
@@ -18,6 +19,6 @@ message Error {
     bytes block_hash = 3;
     uint64 height = 4;
     string tripod_name = 5;
-    string exec_name = 6;
+    string writing_name = 6;
     string err = 7;
 }
