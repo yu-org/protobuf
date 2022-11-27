@@ -4,6 +4,7 @@ option go_package = "./goproto";
 import "result.proto";
 import "block.proto";
 import "txn.proto";
+import "base_types.proto";
 
 message ReadContext {
     string params_str = 1;
@@ -17,4 +18,12 @@ message WriteContext {
     repeated Event events = 4;
     Error error = 5;
     uint64  lei_cost = 6;
+}
+
+service Writing {
+    rpc Write(WriteContext) returns (Err);
+}
+
+service Reading {
+    rpc Read(ReadContext) returns (Err);
 }
