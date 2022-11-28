@@ -11,6 +11,7 @@ service StateDB {
     rpc Delete(Key) returns (google.protobuf.Empty);
     rpc Exist(Key) returns (Bool);
     rpc GetByBlockHash(KeyByHash) returns (ValueResponse);
+    rpc GetFinalized(Key) returns (ValueResponse);
 
     rpc StartBlock(TxnHash) returns (google.protobuf.Empty);
     rpc Commit(google.protobuf.Empty) returns (TxnHashResponse);
