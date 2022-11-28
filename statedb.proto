@@ -5,7 +5,7 @@ option go_package = "./goproto";
 import "google/protobuf/empty.proto";
 import "base_types.proto";
 
-service StateStore {
+service StateDB {
     rpc Get(Key) returns (ValueResponse);
     rpc Set(KeyValue) returns (Err);
     rpc Delete(Key) returns (Err);
