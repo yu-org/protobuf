@@ -13,7 +13,6 @@ service StateDB {
     rpc GetByBlockHash(KeyByHash) returns (ValueResponse);
 
     rpc StartBlock(TxnHash) returns (google.protobuf.Empty);
-    rpc SetCanRead(TxnHash) returns (google.protobuf.Empty);
     rpc Commit(google.protobuf.Empty) returns (TxnHashResponse);
     rpc Discard(google.protobuf.Empty) returns (google.protobuf.Empty);
     rpc DiscardAll(google.protobuf.Empty) returns (google.protobuf.Empty);
