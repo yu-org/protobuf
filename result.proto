@@ -9,7 +9,7 @@ message Event {
     uint64 height = 4;
     string tripod_name = 5;
     string writing_name = 6;
-    string value = 7;
+    bytes value = 7;
     uint64 lei_cost = 8;
 }
 
