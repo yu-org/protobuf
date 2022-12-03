@@ -25,9 +25,10 @@ message TripodsInfo {
 
 message TripodInfo {
     string name = 1;
-    repeated string readings = 2;
-    repeated string writings = 3;
-    repeated int32 p2p_handlers = 4;
+    string endpoint = 2;
+    repeated string readings = 3;
+    repeated string writings = 4;
+    repeated int32 p2p_handlers = 5;
 }
 
 message TripodTxnRequest {

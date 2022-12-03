@@ -9,19 +9,24 @@ import "base_types.proto";
 message ReadContext {
     string params_str = 1;
     bytes response = 2;
+    string tripod_name = 3;
+    string func_name = 4;
 }
 
 message WriteContext {
     ReadContext read_context = 1;
     Block block = 2;
     SignedTxn txn = 3;
-    repeated Event events = 4;
-    Error error = 5;
-    uint64  lei_cost = 6;
+    uint64 lei_cost = 4;
 }
 
 service Writing {
-    rpc Write(WriteContext) returns (Err);
+    rpc Write(WriteContext) returns (WriteResult);
+}
+
+message WriteResult {
+    repeated Event events = 1;
+    Err error = 2;
 }
 
 service Reading {
