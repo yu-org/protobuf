@@ -24,6 +24,7 @@ message Ecall {
     string exec_name = 2;
     string params = 3;
     uint64 lei_price = 4;
+    uint64 tips = 5;
 }
 
 message Qcall {
