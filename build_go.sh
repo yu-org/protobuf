@@ -6,8 +6,8 @@
 protoc  -I ./ \
 --go_out=. ./*.proto
 
-protoc  -I ./ \
---go-grpc_out=. --go-grpc_opt=require_unimplemented_servers=false ./*.proto
+#protoc  -I ./ \
+#--go-grpc_out=. --go-grpc_opt=require_unimplemented_servers=false ./*.proto
 
 rm -r ../yu/core/types/goproto
 mv ./goproto ../yu/core/types
