@@ -4,7 +4,7 @@ option go_package = "./goproto";
 
 message UnsignedTxn {
     bytes caller = 1;
-    Ecall ecall = 2;
+    WrCall wr_all = 2;
     uint64 timestamp = 3;
 }
 
@@ -19,17 +19,18 @@ message SignedTxns {
     repeated SignedTxn txns = 1;
 }
 
-message Ecall {
+message WrCall {
     string tripod_name = 1;
-    string exec_name = 2;
+    string func_name = 2;
     string params = 3;
     uint64 lei_price = 4;
     uint64 tips = 5;
+    uint64 chain_id = 6;
 }
 
-message Qcall {
+message RdCall {
     string tripod_name = 1;
-    string exec_name = 2;
+    string func_name = 2;
     string params = 3;
 
     bytes block_hash = 4;
