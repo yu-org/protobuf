@@ -4,7 +4,7 @@ option go_package = "./goproto";
 
 message UnsignedTxn {
     bytes caller = 1;
-    WrCall wr_all = 2;
+    WrCall wr_call = 2;
     uint64 timestamp = 3;
 }
 
