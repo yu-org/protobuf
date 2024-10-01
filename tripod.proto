@@ -38,5 +38,5 @@ message TripodTxnRequest {
 
 message TripodBlockRequest {
     string tripod_name = 1;
-    CompactBlock block = 2;
+    Block block = 2;
 }
