@@ -8,7 +8,7 @@ import "block.proto";
 
 service Tripod {
     rpc CheckTxn(TripodTxnRequest) returns (Err);
-    rpc VerifyBlock(TripodBlockRequest) returns (Bool);
+    rpc VerifyBlock(TripodBlockRequest) returns (Err);
 
     rpc StartBlock(TripodBlockRequest) returns (Err);
     rpc EndBlock(TripodBlockRequest) returns (Err);
