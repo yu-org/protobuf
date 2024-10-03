@@ -10,9 +10,9 @@ service Tripod {
     rpc CheckTxn(TripodTxnRequest) returns (Err);
     rpc VerifyBlock(TripodBlockRequest) returns (Err);
 
-    rpc StartBlock(TripodBlockRequest) returns (Err);
-    rpc EndBlock(TripodBlockRequest) returns (Err);
-    rpc FinalizeBlock(TripodBlockRequest) returns (Err);
+    rpc StartBlock(TripodBlockRequest) returns (TripodBlockResponse);
+    rpc EndBlock(TripodBlockRequest) returns (TripodBlockResponse);
+    rpc FinalizeBlock(TripodBlockRequest) returns (TripodBlockResponse);
 }
 
 service Land {
@@ -39,4 +39,9 @@ message TripodTxnRequest {
 message TripodBlockRequest {
     string tripod_name = 1;
     Block block = 2;
+}
+
+message TripodBlockResponse {
+    Block block = 1;
+    string error = 2;
 }
