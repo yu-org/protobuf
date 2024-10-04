@@ -33,6 +33,8 @@ service Reading {
 }
 
 message ReadResult {
-    bytes response = 1;
-    Err error = 2;
+    int32 code = 1;
+    string content_type = 2;
+    bytes data = 3;
+    Err error = 4;
 }
